@@ -504,4 +504,8 @@ gradle-app.setting
 
 .scannerwork
 
+### Node ###
+/node_modules
+package-lock.json
+
 # End of https://www.gitignore.io/api/osx,java,linux,macos,gradle,kotlin,android,windows,intellij,intellij+iml,intellij+all,androidstudio
