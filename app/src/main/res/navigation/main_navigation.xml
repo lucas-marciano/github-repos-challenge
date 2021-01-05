@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/home_fragment">
+
+    <fragment
+        android:id="@+id/home_fragment"
+        android:name="com.lucasdam.githubchanllenge.ui.main.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/home_layout" >
+        <action
+            android:id="@+id/home_to_image"
+            app:destination="@+id/image_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/image_fragment"
+        android:name="com.lucasdam.githubchanllenge.ui.main.image.ImageFragment"
+        android:label="ImageFragment"
+        tools:layout="@layout/image_layout" >
+        <argument
+            android:name="Repository"
+            app:argType="com.lucasdam.mvvmkotlinarchitecture.shared.model.view.Repository" />
+    </fragment>
+
+</navigation>

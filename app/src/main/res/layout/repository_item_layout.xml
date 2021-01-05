@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/spacing_small">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/spacing_small">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_item_tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryText"
+            android:textSize="@dimen/text_extra_large"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="repos-name" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_star"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_item_tv_name" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_total_stars"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_micro"
+            android:textSize="@dimen/text_large"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_star"
+            app:layout_constraintStart_toEndOf="@+id/iv_star"
+            app:layout_constraintTop_toBottomOf="@+id/tv_item_tv_name"
+            tools:text="5" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_fork"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_extra_large"
+            android:src="@drawable/ic_fork"
+            app:layout_constraintStart_toEndOf="@+id/tv_total_stars"
+            app:layout_constraintTop_toBottomOf="@+id/tv_item_tv_name" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_total_forks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_micro"
+            android:textSize="@dimen/text_large"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_star"
+            app:layout_constraintStart_toEndOf="@+id/iv_fork"
+            app:layout_constraintTop_toBottomOf="@+id/tv_item_tv_name"
+            tools:text="5" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_author_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_large"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="user-name" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_author_avatar"
+            android:layout_width="@dimen/avatar_dimension"
+            android:layout_height="@dimen/avatar_dimension"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tv_author_name"
+            app:layout_constraintStart_toEndOf="@+id/tv_item_tv_name"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
