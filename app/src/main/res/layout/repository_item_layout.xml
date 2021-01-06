@@ -26,7 +26,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_star"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_item_tv_name" />
 
@@ -67,8 +66,8 @@
             android:layout_height="wrap_content"
             android:textSize="@dimen/text_large"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_star"
             tools:text="user-name" />
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -76,8 +75,7 @@
             android:layout_width="@dimen/avatar_dimension"
             android:layout_height="@dimen/avatar_dimension"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/tv_author_name"
-            app:layout_constraintStart_toEndOf="@+id/tv_item_tv_name"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
