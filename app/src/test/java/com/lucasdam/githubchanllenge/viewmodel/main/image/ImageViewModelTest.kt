@@ -5,6 +5,7 @@ import com.lucasdam.githubchanllenge.ui.main.image.ImageContract
 import com.lucasdam.githubchanllenge.ui.main.image.ImageViewModelImpl
 import com.lucasdam.githubchanllenge.shared.ViewModelTest
 import com.jraska.livedata.TestObserver
+import com.lucasdam.githubchanllenge.shared.model.view.Owner
 import io.mockk.confirmVerified
 import io.mockk.mockk
 import org.junit.Test
@@ -27,7 +28,7 @@ class ImageViewModelTest : ViewModelTest<ImageContract.ViewModel>() {
     fun `get url successfully`() {
         viewModel.output.onGetRepositoryUrl.observeForever(onGetRepositoryUrlTest)
 
-        viewModel.input.loadUrl(Repository("", "url"))
+        viewModel.input.loadUrl(Repository("", 0, 0 , Owner("", "url")))
 
         onGetRepositoryUrlTest.assertValue("url")
 

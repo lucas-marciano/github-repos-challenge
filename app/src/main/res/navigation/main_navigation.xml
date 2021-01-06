@@ -22,7 +22,7 @@
         tools:layout="@layout/image_layout" >
         <argument
             android:name="Repository"
-            app:argType="com.lucasdam.mvvmkotlinarchitecture.shared.model.view.Repository" />
+            app:argType="com.lucasdam.githubchanllenge.shared.model.view.Repository" />
     </fragment>
 
 </navigation>

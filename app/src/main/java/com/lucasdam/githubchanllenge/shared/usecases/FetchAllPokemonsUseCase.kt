@@ -18,5 +18,5 @@ class FetchAllRepositoriesUseCaseImpl(
 ) : FetchAllRepositoriesUseCase {
 
     override fun fetchAllRepositories() =
-        mainService.fetchAllRepositories().map { it.results.map { item -> Repository(item) } }
+        mainService.fetchAllRepositories().map { it.items.map { item -> Repository(item) } }
 }

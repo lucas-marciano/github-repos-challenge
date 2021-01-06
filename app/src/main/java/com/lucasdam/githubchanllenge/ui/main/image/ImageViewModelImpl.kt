@@ -16,8 +16,8 @@ class ImageViewModelImpl(
 
     override val onGetRepositoryUrl: MutableLiveData<String> = MutableLiveData()
 
-    override fun loadUrl(pokemon: Repository) {
-        onGetRepositoryUrl.value = pokemon.url
+    override fun loadUrl(repository: Repository) {
+        onGetRepositoryUrl.value = repository.owner.avatar_url
     }
 
     override val input: ImageContract.ViewModel.Input = this

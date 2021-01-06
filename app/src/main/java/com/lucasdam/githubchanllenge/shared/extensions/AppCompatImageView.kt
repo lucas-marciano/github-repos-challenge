@@ -8,6 +8,7 @@ fun AppCompatImageView.loadImage(imageUrl: String, forceCache: Boolean = false) 
     val cacheStrategy = if (forceCache) DiskCacheStrategy.ALL else DiskCacheStrategy.AUTOMATIC
     Glide.with(this.context)
         .load(imageUrl)
+        .circleCrop()
         .diskCacheStrategy(cacheStrategy)
         .into(this)
 }

@@ -17,7 +17,7 @@ interface HomeContract {
 
         interface Input {
             fun getRepositories()
-            fun routeToImageFragment(pokemon: Repository)
+            fun routeToImageFragment(repository: Repository)
         }
 
         interface Output {

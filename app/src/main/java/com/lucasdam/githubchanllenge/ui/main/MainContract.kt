@@ -22,6 +22,6 @@ interface MainContract {
     interface ActivityView : BaseContract.ActivityView
 
     interface Router : BaseContract.Router {
-        fun routeToImageFragment(pokemon: Repository)
+        fun routeToImageFragment(repository: Repository)
     }
 }

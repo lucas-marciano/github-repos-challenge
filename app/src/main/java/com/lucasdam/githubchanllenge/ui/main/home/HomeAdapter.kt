@@ -23,8 +23,8 @@ class HomeAdapter : BaseAdapter<Repository>() {
         BaseViewHolder<Repository>(itemView) {
         override fun bind(item: Repository, position: Int) {
             itemView.tv_item_tv_name.text = item.name
-            itemView.tv_total_stars.text = item.stargazersCount
-            itemView.tv_total_forks.text = item.forksCount
+            itemView.tv_total_stars.text = "${item.stargazersCount}"
+            itemView.tv_total_forks.text = "${item.forksCount}"
             itemView.tv_author_name.text = item.owner.login
             itemView.iv_author_avatar.loadImage(item.owner.avatar_url)
             itemView.setOnClickListener { callback(item) }

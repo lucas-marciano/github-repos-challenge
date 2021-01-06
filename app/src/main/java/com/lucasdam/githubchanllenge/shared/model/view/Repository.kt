@@ -11,8 +11,8 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class Repository(
     var name: String,
-    var stargazersCount: String,
-    var forksCount: String,
+    var stargazersCount: Int,
+    var forksCount: Int,
     var owner: Owner
 ) : Parcelable {
     constructor(response: RepositoryItemResponse) : this(

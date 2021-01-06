@@ -3,6 +3,7 @@ package com.lucasdam.githubchanllenge.usecase
 import com.lucasdam.githubchanllenge.shared.UseCaseTest
 import com.lucasdam.githubchanllenge.shared.model.domain.response.RepositoryItemResponse
 import com.lucasdam.githubchanllenge.shared.model.domain.response.RepositoryResponse
+import com.lucasdam.githubchanllenge.shared.model.view.Owner
 import com.lucasdam.githubchanllenge.shared.model.view.Repository
 import com.lucasdam.githubchanllenge.shared.services.MainService
 import com.lucasdam.githubchanllenge.shared.usecases.FetchAllRepositoriesUseCase
@@ -29,17 +30,17 @@ class FetchAllRepositoriesUseCaseTest : UseCaseTest<FetchAllRepositoriesUseCase>
     }
 
     @Test
-    fun `fetch all pokemons successfully`() {
+    fun `fetch all repository successfully`() {
         val response = RepositoryResponse(
             listOf(
-                RepositoryItemResponse("a", "aa"),
-                RepositoryItemResponse("b", "bb")
+                RepositoryItemResponse("a", 0, 0, Owner("", "")),
+                RepositoryItemResponse("b", 0, 0, Owner("", ""))
             )
         )
 
         val expected = listOf(
-            Repository("a", "aa"),
-            Repository("b", "bb")
+            Repository("a", 0, 0, Owner("", "")),
+            Repository("b", 0, 0, Owner("", ""))
         )
 
         every { mainService.fetchAllRepositories() } returns Single.just(response)

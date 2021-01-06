@@ -9,7 +9,6 @@ import retrofit2.http.GET
  */
 
 interface MainService {
-
-    @GET("pokemon/?offset=00&limit=964")
+    @GET("repositories?q=language:kotlin&sort=stars")
     fun fetchAllRepositories(): Single<RepositoryResponse>
 }

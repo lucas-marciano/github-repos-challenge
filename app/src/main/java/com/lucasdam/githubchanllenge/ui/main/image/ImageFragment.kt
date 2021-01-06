@@ -25,7 +25,7 @@ class ImageFragment :
 
     override fun bindViewModels() {
         viewModel.output.onGetRepositoryUrl.observe(this, Observer {
-            bind.imageTvUrl.text = it
+            bind.tvInfoName.text = it
         })
     }
 }

@@ -5,6 +5,7 @@
     <string name="throwable_handler_generic_message">Não foi possível identificar a causa do erro no servidor, ele pode estar temporariamente indisponível.</string>
     <string name="throwable_handler_no_network_title">Sem conexão com a internet</string>
     <string name="throwable_handler_no_network">Confira se o wi-fi ou os dados da rede celular estão ativos e tente novamente.</string>
+    <string name="dummy_message">Load some information</string>
     <!-- Throwable Handler -->
 
 </resources>

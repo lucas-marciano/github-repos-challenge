@@ -19,10 +19,10 @@ class MainRouterImpl(
     navController
 ), MainContract.Router {
 
-    override fun routeToImageFragment(pokemon: Repository) {
+    override fun routeToImageFragment(repository: Repository) {
         navController.navigate(
             R.id.home_to_image,
-            bundleOf(Pair(KEY, pokemon)),
+            bundleOf(Pair(KEY, repository)),
             defaultNavOptions
         )
     }

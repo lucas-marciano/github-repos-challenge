@@ -15,7 +15,7 @@ interface ImageContract {
         val output: Output
 
         interface Input {
-            fun loadUrl(pokemon: Repository)
+            fun loadUrl(repository: Repository)
         }
 
         interface Output {

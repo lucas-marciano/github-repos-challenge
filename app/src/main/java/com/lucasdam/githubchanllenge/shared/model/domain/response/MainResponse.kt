@@ -7,12 +7,12 @@ import com.lucasdam.githubchanllenge.shared.model.view.Owner
  */
 
 data class RepositoryResponse(
-    var results: List<RepositoryItemResponse>
+    var items: List<RepositoryItemResponse>
 )
 
 data class RepositoryItemResponse(
     var name: String,
-    var stargazers_count: String,
-    var forks_count: String,
+    var stargazers_count: Int,
+    var forks_count: Int,
     var owner: Owner
 )

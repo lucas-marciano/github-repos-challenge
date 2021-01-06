@@ -38,8 +38,8 @@ class HomeViewModelImpl(
         )
     }
 
-    override fun routeToImageFragment(pokemon: Repository) {
-        router.routeToImageFragment(pokemon)
+    override fun routeToImageFragment(repository: Repository) {
+        router.routeToImageFragment(repository)
     }
 
     override val input: HomeContract.ViewModel.Input = this

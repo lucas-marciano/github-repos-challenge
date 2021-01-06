@@ -6,6 +6,7 @@ import com.lucasdam.githubchanllenge.ui.main.home.HomeContract
 import com.lucasdam.githubchanllenge.ui.main.home.HomeViewModelImpl
 import com.lucasdam.githubchanllenge.shared.ViewModelTest
 import com.jraska.livedata.TestObserver
+import com.lucasdam.githubchanllenge.shared.model.view.Owner
 import io.mockk.confirmVerified
 import io.mockk.every
 import io.mockk.mockk
@@ -38,7 +39,7 @@ class HomeViewModelTest : ViewModelTest<HomeContract.ViewModel>() {
     }
 
     @Test
-    fun `fetch pokemons successfully`() {
+    fun `fetch repository successfully`() {
         every { interactor.fetchAllRepositories() } returns Single.just(getRepositories())
 
         viewModel.output.onFetchRepositories.observeForever(onFetchRepositoriesObserver)
@@ -59,7 +60,7 @@ class HomeViewModelTest : ViewModelTest<HomeContract.ViewModel>() {
 
     private fun getRepositories() =
         listOf(
-            Repository("pokemon 1", ""),
-            Repository("pokemon 2", "")
+            Repository("1", 0, 0, Owner("", "")),
+            Repository("2", 0, 0, Owner("", ""))
         )
 }
