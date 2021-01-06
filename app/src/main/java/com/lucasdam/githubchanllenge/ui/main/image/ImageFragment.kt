@@ -1,8 +1,8 @@
 package com.lucasdam.githubchanllenge.ui.main.image
 
-import androidx.lifecycle.Observer
 import com.lucasdam.githubchanllenge.databinding.ImageLayoutBinding
 import com.lucasdam.githubchanllenge.mvvm.BaseFragment
+import com.lucasdam.githubchanllenge.shared.extensions.observer
 import com.lucasdam.githubchanllenge.shared.model.view.Repository
 import com.lucasdam.githubchanllenge.ui.main.MainContract
 import com.lucasdam.githubchanllenge.ui.main.MainRouterImpl
@@ -24,8 +24,8 @@ class ImageFragment :
     }
 
     override fun bindViewModels() {
-        viewModel.output.onGetRepositoryUrl.observe(this, Observer {
+        viewModel.output.onGetRepositoryUrl.observer(viewLifecycleOwner) {
             bind.tvInfoName.text = it
-        })
+        }
     }
 }

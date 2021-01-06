@@ -14,7 +14,6 @@ import org.koin.core.module.Module
 /**
  * @author Lucas Marciano on 05/04/20.
  */
-
 abstract class BaseFragment<ActivityType, ViewModelType, BindingType> : Fragment(),
     BaseContract.ActionView, ViewBindingHolder<BindingType> by ViewBindingHolderImpl()
         where ActivityType : BaseContract.ActivityView,
@@ -30,6 +29,7 @@ abstract class BaseFragment<ActivityType, ViewModelType, BindingType> : Fragment
 
     private var createdView: View? = null
     private var hasInitializedView = false
+    var savedInstanceState: Bundle? = null
 
     protected abstract fun initialize()
     protected abstract fun bindViewModels()
@@ -43,6 +43,7 @@ abstract class BaseFragment<ActivityType, ViewModelType, BindingType> : Fragment
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        this.savedInstanceState = savedInstanceState
 
         if (!hasInitializedView) {
             loadKoinModules(module)
@@ -69,4 +70,8 @@ abstract class BaseFragment<ActivityType, ViewModelType, BindingType> : Fragment
     override fun showError(error: String) = parentActivity.showError(error)
 
     final override fun showNotImplementedAlert() = parentActivity.showNotImplementedAlert()
+
+    fun clearState() {
+        savedInstanceState = null
+    }
 }

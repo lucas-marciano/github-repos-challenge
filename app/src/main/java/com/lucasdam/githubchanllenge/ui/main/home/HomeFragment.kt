@@ -1,18 +1,22 @@
 package com.lucasdam.githubchanllenge.ui.main.home
 
-import androidx.lifecycle.Observer
+import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lucasdam.githubchanllenge.databinding.HomeLayoutBinding
 import com.lucasdam.githubchanllenge.mvvm.BaseFragment
+import com.lucasdam.githubchanllenge.shared.extensions.onScrollToEnd
 import com.lucasdam.githubchanllenge.ui.main.MainContract
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
+import com.lucasdam.githubchanllenge.shared.extensions.observer
+import com.lucasdam.githubchanllenge.shared.model.view.Repository
+
+private const val KEY_LIST = "KEY_LIST"
 
 /**
  * @author Lucas Marciano on 03/01/21.
  */
-
 class HomeFragment :
     BaseFragment<MainContract.ActivityView, HomeContract.ViewModel, HomeLayoutBinding>() {
 
@@ -24,11 +28,24 @@ class HomeFragment :
 
     override fun initialize() {
         initializeElements()
-        viewModel.input.getRepositories(2)
+        viewModel.input.getRepositories()
     }
 
     override fun bindViewModels() {
-        viewModel.output.onFetchRepositories.observe(this, Observer { homeAdapter.list = it })
+        viewModel.output.onFetchRepositories.observer(viewLifecycleOwner) {
+            if (savedInstanceState != null) {
+                homeAdapter.list =
+                    savedInstanceState?.getParcelableArrayList<Repository>(KEY_LIST)!!
+                        .toMutableList()
+            } else {
+                homeAdapter.list = it.toMutableList()
+            }
+        }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putParcelableArrayList(KEY_LIST, ArrayList(homeAdapter.list))
     }
 
     private fun initializeElements() {
@@ -37,12 +54,11 @@ class HomeFragment :
             adapter = homeAdapter.apply {
                 callback = viewModel.input::routeToImageFragment
             }
+            onScrollToEnd {
+                clearState()
+                homeAdapter.plusPage()
+                viewModel.input.getRepositories(homeAdapter.page)
+            }
         }
     }
-
-    private fun buildScrollListenerRecyclerView() {
-
-    }
-
-
 }

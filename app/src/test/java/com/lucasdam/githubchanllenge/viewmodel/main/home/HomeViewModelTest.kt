@@ -40,7 +40,7 @@ class HomeViewModelTest : ViewModelTest<HomeContract.ViewModel>() {
 
     @Test
     fun `fetch repository successfully`() {
-        every { interactor.fetchAllRepositories() } returns Single.just(getRepositories())
+        every { interactor.fetchAllRepositories(1) } returns Single.just(getRepositories())
 
         viewModel.output.onFetchRepositories.observeForever(onFetchRepositoriesObserver)
         viewModel.showLoading.observeForever(showLoadingObserver)
@@ -49,7 +49,7 @@ class HomeViewModelTest : ViewModelTest<HomeContract.ViewModel>() {
         viewModel.input.getRepositories()
         testScheduler.triggerActions()
 
-        verify { interactor.fetchAllRepositories() }
+        verify { interactor.fetchAllRepositories(1) }
 
         showLoadingObserver.assertHasValue()
         hideLoadingObserver.assertHasValue()

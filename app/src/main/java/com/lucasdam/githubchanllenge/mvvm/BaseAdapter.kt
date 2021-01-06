@@ -15,11 +15,13 @@ import com.lucasdam.githubchanllenge.mvvm.BaseAdapter.BaseViewHolder
 
 abstract class BaseAdapter<ItemType> : RecyclerView.Adapter<BaseViewHolder<ItemType>>() {
 
-    internal var list = listOf<ItemType>()
+    internal var list = mutableListOf<ItemType>()
         set(value) {
-            field = value
+            field.addAll(value)
             notifyDataSetChanged()
         }
+
+    internal var page: Int = 1
 
     @LayoutRes
     abstract fun getLayoutResId(viewType: Int): Int
@@ -39,6 +41,10 @@ abstract class BaseAdapter<ItemType> : RecyclerView.Adapter<BaseViewHolder<ItemT
     fun isEmpty(): Boolean = list.isEmpty()
 
     fun isTheLastItem(position: Int): Boolean = position == list.size - 1
+
+    fun plusPage(plus: Int = 1) {
+        this.page = this.page + plus
+    }
 
     @NonNull
     protected fun inflate(@LayoutRes layoutRes: Int, @Nullable parent: ViewGroup): View =

@@ -43,14 +43,14 @@ class FetchAllRepositoriesUseCaseTest : UseCaseTest<FetchAllRepositoriesUseCase>
             Repository("b", 0, 0, Owner("", ""))
         )
 
-        every { mainService.fetchAllRepositories() } returns Single.just(response)
+        every { mainService.fetchAllRepositories(1) } returns Single.just(response)
 
         useCase
-            .fetchAllRepositories()
+            .fetchAllRepositories(1)
             .test()
             .assertResult(expected)
 
-        verify { mainService.fetchAllRepositories() }
+        verify { mainService.fetchAllRepositories(1) }
 
         confirmVerified(mainService)
     }

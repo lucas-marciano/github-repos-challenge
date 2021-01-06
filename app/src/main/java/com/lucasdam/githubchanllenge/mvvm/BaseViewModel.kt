@@ -6,7 +6,12 @@ import com.lucasdam.githubchanllenge.shared.di.DisposeBag
 import com.lucasdam.githubchanllenge.shared.network.ThrowableHandler
 import com.lucasdam.githubchanllenge.shared.provider.SchedulerProvider
 import com.lucasdam.githubchanllenge.shared.provider.StringProvider
-import io.reactivex.*
+import io.reactivex.CompletableTransformer
+import io.reactivex.CompletableSource
+import io.reactivex.Completable
+import io.reactivex.SingleTransformer
+import io.reactivex.SingleSource
+import io.reactivex.Single
 
 /**
  * @author Lucas Marciano on 05/04/20.

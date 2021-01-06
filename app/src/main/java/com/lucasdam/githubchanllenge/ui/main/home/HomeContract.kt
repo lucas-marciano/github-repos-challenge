@@ -1,6 +1,6 @@
 package com.lucasdam.githubchanllenge.ui.main.home
 
-import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.LiveData
 import com.lucasdam.githubchanllenge.mvvm.BaseContract
 import com.lucasdam.githubchanllenge.shared.model.view.Repository
 import com.lucasdam.githubchanllenge.shared.usecases.FetchAllRepositoriesUseCase
@@ -16,12 +16,12 @@ interface HomeContract {
         val output: Output
 
         interface Input {
-            fun getRepositories(page: Int)
+            fun getRepositories(page: Int = 1)
             fun routeToImageFragment(repository: Repository)
         }
 
         interface Output {
-            val onFetchRepositories: MutableLiveData<List<Repository>>
+            val onFetchRepositories: LiveData<List<Repository>>
         }
     }
 
