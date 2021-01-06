@@ -10,5 +10,5 @@ class HomeInteractorImpl(
     private val fetchAllRepositoriesUseCase: FetchAllRepositoriesUseCase
 ) : HomeContract.Interactor {
 
-    override fun fetchAllRepositories() = fetchAllRepositoriesUseCase.fetchAllRepositories()
+    override fun fetchAllRepositories(page: Int) = fetchAllRepositoriesUseCase.fetchAllRepositories(page)
 }

@@ -16,7 +16,7 @@ interface HomeContract {
         val output: Output
 
         interface Input {
-            fun getRepositories()
+            fun getRepositories(page: Int)
             fun routeToImageFragment(repository: Repository)
         }
 

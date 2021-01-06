@@ -28,9 +28,9 @@ class HomeViewModelImpl(
 
     override val onFetchRepositories: MutableLiveData<List<Repository>> = MutableLiveData()
 
-    override fun getRepositories() {
+    override fun getRepositories(page: Int) {
         disposeBag!!.add(
-            interactor.fetchAllRepositories()
+            interactor.fetchAllRepositories(page)
                 .compose(observeOnUiAfterResult())
                 .doOnSubscribe { showLoading.call() }
                 .doFinally { hideLoading.call() }

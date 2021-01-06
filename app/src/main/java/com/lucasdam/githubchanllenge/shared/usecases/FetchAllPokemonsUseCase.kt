@@ -10,13 +10,13 @@ import io.reactivex.Single
  */
 
 interface FetchAllRepositoriesUseCase : BaseContract.UseCase {
-    fun fetchAllRepositories(): Single<List<Repository>>
+    fun fetchAllRepositories(page: Int): Single<List<Repository>>
 }
 
 class FetchAllRepositoriesUseCaseImpl(
     private val mainService: MainService
 ) : FetchAllRepositoriesUseCase {
 
-    override fun fetchAllRepositories() =
-        mainService.fetchAllRepositories().map { it.items.map { item -> Repository(item) } }
+    override fun fetchAllRepositories(page: Int) =
+        mainService.fetchAllRepositories(page).map { it.items.map { item -> Repository(item) } }
 }

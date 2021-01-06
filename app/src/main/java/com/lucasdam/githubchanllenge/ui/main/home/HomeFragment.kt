@@ -24,7 +24,7 @@ class HomeFragment :
 
     override fun initialize() {
         initializeElements()
-        viewModel.input.getRepositories()
+        viewModel.input.getRepositories(2)
     }
 
     override fun bindViewModels() {
@@ -38,6 +38,10 @@ class HomeFragment :
                 callback = viewModel.input::routeToImageFragment
             }
         }
+    }
+
+    private fun buildScrollListenerRecyclerView() {
+
     }
 
 
